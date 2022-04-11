@@ -48,6 +48,18 @@ const consultarMayorNumeroReviews = async (nombreColeccion) => {
 /**
  * 
  * @param {String} nombreColeccion 
+ * @param {Param} nroCamas 
+ * @returns las {nroCamas} propiedades que tienen mayor numero de camas
+ */
+const consultarMayorNumeroCamas = async (nombreColeccion, nroCamas) => {
+  let coleccion = await definirColeccion(nombreColeccion);
+  return coleccion.find().sort({ beds: -1 })
+    .project({ name: 1, beds: 1, number_of_reviews: 1, price: 1 }).limit(parseInt(nroCamas)).toArray();
+}
+
+/**
+ * 
+ * @param {String} nombreColeccion 
  * @returns Coleccion traida de MongoDB
  */
 const definirColeccion = async (nombreColeccion) => {
@@ -59,5 +71,6 @@ const definirColeccion = async (nombreColeccion) => {
 module.exports = { 
     consultarDocumentos, 
     consultarTypes,
-    consultarMayorNumeroReviews
+    consultarMayorNumeroReviews,
+    consultarMayorNumeroCamas
 };
