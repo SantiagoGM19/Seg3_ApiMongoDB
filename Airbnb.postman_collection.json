@@ -1,0 +1,93 @@
+{
+	"info": {
+		"_postman_id": "58ebb35b-11be-4692-abd1-54d6099121ff",
+		"name": "Airbnb",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Propiedades",
+			"item": [
+				{
+					"name": "consultar propiedades",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/airbnb/all-properties",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"airbnb",
+								"all-properties"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "consultar diferentes propiedades",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/airbnb/types",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"airbnb",
+								"types"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "consulta mayor numero reseñas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/airbnb/reviews",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"airbnb",
+								"reviews"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "consultar mayor numero de camas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}/airbnb/beds/:nro_beds",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"airbnb",
+								"beds",
+								":nro_beds"
+							],
+							"variable": [
+								{
+									"key": "nro_beds",
+									"value": "4"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
