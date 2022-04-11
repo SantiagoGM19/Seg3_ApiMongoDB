@@ -27,11 +27,22 @@ const consultarDocumentos = async (nombreColeccion, filtro) => {
 /**
  * 
  * @param {String} nombreColeccion 
- * @returns Documentos consultados
+ * @returns Diferentes tipos de propiedades existentes sin repetición.
  */
 const consultarTypes = async (nombreColeccion) => {
   let coleccion = await definirColeccion(nombreColeccion);
   return coleccion.distinct("property_type");
+};
+
+/**
+ * 
+ * @param {String} nombreColeccion 
+ * @returns 20 propiedades de airbnb con mayor numero de reseñas
+ */
+const consultarMayorNumeroReviews = async (nombreColeccion) => {
+  let coleccion = await definirColeccion(nombreColeccion);
+  return coleccion.find().sort({ number_of_reviews: -1 })
+    .project({ name: 1, beds: 1, number_of_reviews: 1, price: 1 }).limit(20).toArray();
 };
 
 /**
@@ -47,5 +58,6 @@ const definirColeccion = async (nombreColeccion) => {
 
 module.exports = { 
     consultarDocumentos, 
-    consultarTypes
+    consultarTypes,
+    consultarMayorNumeroReviews
 };
